@@ -1,36 +1,64 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- Versão do modelo do projeto Maven -->
   <modelVersion>4.0.0</modelVersion>
+
+  <!-- Identificador do projeto no repositório -->
   <groupId>br.com.unicesumar_mapa.Figueiredof</groupId>
+
+  <!-- Nome do artefato (arquivo gerado será mapa.war) -->
   <artifactId>mapa</artifactId>
+
+  <!-- Tipo de empacotamento: WAR (Web Application Archive) -->
   <packaging>war</packaging>
+
+  <!-- Versão do projeto -->
   <version>1.0-SNAPSHOT</version>
+
+  <!-- Nome amigável do projeto -->
   <name>mapa Maven Webapp</name>
+
+  <!-- URL de referência do projeto (opcional) -->
   <url>http://maven.apache.org</url>
+
+  <!-- Dependências utilizadas no projeto -->
   <dependencies>
+
+    <!-- JUnit para testes unitários -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- API de Servlets Jakarta (Tomcat fornece em tempo de execução) -->
     <dependency>
       <groupId>jakarta.servlet</groupId>
       <artifactId>jakarta.servlet-api</artifactId>
       <version>6.1.0</version>
-      <scope>provided</scope>
+      <scope>provided</scope> <!-- provided = não vai dentro do .war -->
     </dependency>
+
+    <!-- JSTL (Jakarta Standard Tag Library) API -->
     <dependency>
       <groupId>jakarta.servlet.jsp.jstl</groupId>
       <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
       <version>2.0.0</version>
     </dependency>
+
+    <!-- Implementação da JSTL (necessária para funcionar no runtime) -->
     <dependency>
       <groupId>org.glassfish.web</groupId>
       <artifactId>jakarta.servlet.jsp.jstl</artifactId>
       <version>2.0.0</version>
     </dependency>
+
   </dependencies>
+
+  <!-- Configurações de build (nome final do .war gerado) -->
   <build>
     <finalName>mapa</finalName>
   </build>

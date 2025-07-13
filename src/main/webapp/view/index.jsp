@@ -5,7 +5,10 @@
   <title>Cadastro de Livros - Biblioteca Unicesumar</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Estilização completa para formulário e exibição dos livros -->
   <style>
+    /* Reset e estilo geral da página */
     body {
       margin: 0;
       padding: 0;
@@ -17,6 +20,8 @@
       min-height: 100vh;
       flex-direction: column;
     }
+
+    /* Container principal do formulário */
     .container-form {
       background-color: #ffffff;
       padding: 40px;
@@ -26,17 +31,20 @@
       max-width: 500px;
       margin-bottom: 40px;
     }
+
     h2 {
       text-align: center;
       color: #004080;
       margin-bottom: 30px;
     }
+
     label {
       display: block;
       margin-bottom: 8px;
       font-weight: bold;
       color: #333;
     }
+
     input[type="text"] {
       width: 100%;
       padding: 10px;
@@ -45,6 +53,7 @@
       margin-bottom: 20px;
       font-size: 14px;
     }
+
     .button-submit {
       display: block;
       width: 100%;
@@ -58,21 +67,26 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     .button-submit:hover {
       background-color: #0066cc;
     }
+
     footer {
       text-align: center;
       font-size: 12px;
       color: #777;
       margin-top: 20px;
     }
+
     .error-message {
       color: red;
       font-weight: bold;
       margin-bottom: 20px;
       text-align: center;
     }
+
+    /* Estilo da lista de livros renderizada dinamicamente */
     .lista {
       background-color: #fff;
       padding: 20px;
@@ -82,12 +96,15 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       border-radius: 12px;
     }
+
     .lista p {
       margin: 4px 0;
     }
+
     .lista form {
       margin-top: 10px;
     }
+
     .lista button {
       background-color: #e63946;
       color: white;
@@ -97,16 +114,20 @@
       cursor: pointer;
       font-weight: bold;
     }
+
     .lista button:hover {
       background-color: #d62828;
     }
   </style>
 </head>
+
 <body>
 
+<!-- Container principal do formulário -->
 <div class="container-form">
   <h2>Cadastro de Livros</h2>
 
+  <%-- Exibição de mensagem de erro, se existir --%>
   <%
     String mensagemErro = (String) request.getAttribute("mensagemErro");
     if (mensagemErro != null && !mensagemErro.isEmpty()) {
@@ -118,6 +139,7 @@
     }
   %>
 
+  <%-- Formulário de cadastro de livro --%>
   <form action="livros" method="post">
     <input type="hidden" name="action" value="create" />
 
@@ -141,7 +163,7 @@
   </footer>
 </div>
 
-<!-- Lista de livros renderizada dinamicamente -->
+<!-- Lista de livros exibida dinamicamente via Servlet -->
 <%= request.getAttribute("htmlLivros") %>
 
 </body>
